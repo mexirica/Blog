@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ post.foto.url }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{ post.titulo }}</h1>
+                            <h2 class="subheading">{{ post.subtitulo }}</h2>
+                            <span class="meta">
+                                Escrito por
+                                <a href="{% url 'sobre'%}">Rodrigo Mecheri</a>
+                                em {{ post.data }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                            <p>{{ post.texto }}</p>
+                                <h2>{{ post.titulo2 }}</h2>
+                                <p>{{ post.texto2 }}</p>
+                                    <h2>{{ post.titulo3 }}</h2>
+                                    <p>{{ post.texto3 }}</p>
+                                    <h2>{{ post.titulo4 }}</h2>
+                                    <p>{{ post.texto4 }}</p>
+                                    <h2>{{ post.titulo5 }}</h2>
+                                    <p>{{ post.texto5 }}</p>
+                                    <h2>{{ post.titulo6 }}</h2>
+                                    <p>{{ post.texto6 }}</p>
+                                    <h2>{{ post.titulo7 }}</h2>
+                                    <p>{{ post.texto7 }}</p>
+                                    <h2>{{ post.titulo8 }}</h2>
+                                    <p>{{ post.texto8 }}</p>
+                                    <h2>{{ post.titulo9 }}</h2>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% endblock content %}
+    </html>

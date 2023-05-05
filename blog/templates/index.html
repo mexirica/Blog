@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{% static "assets/img/pexels-cottonbro-studio-5483077.jpg"%}'); background-position: 0 60%">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Pythonly</h1>
+                            <span class="subheading">De um entusiasta de Python para outro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {% for posts in cards %}
+                    <div class="post-preview">
+                        <a href="{% url 'post' posts.id %}">
+                            <h2 class="post-title">{{ posts.titulo }}</h2>
+                            <h3 class="post-subtitle">{{ posts.subtitulo }}</h3>
+                        </a>
+                        <p class="post-meta">
+                            Publicado por
+                            <a href="{% url 'sobre' %}">Rodrigo Mecheri</a>
+                            em {{ posts.data }}
+                        </p>
+                        <hr class="my-4" />
+                    </div>
+                    {% endfor %}
+                    <div class="mb-4 d-flex justify-content-between">
+                        {% if cards.has_previuous %}
+                        <a class="btn btn-primary text-uppercase" href="?page={{ cards.previous_page_number }}">Página anterior</a>
+                        {% endif %}
+                        {% if cards.has_next %}
+                        <a class="btn btn-primary text-uppercase" href="?page={{ cards.next_page_number }}">Próxima página</a>
+                        {%endif%}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    {% endblock content %}
